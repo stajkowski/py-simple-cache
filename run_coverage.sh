@@ -1,4 +1,4 @@
-coverage run --source='./simple-cache' --omit="*__init__*,*/test*" -m unittest discover -s simple-cache/test -p '*_test.py'
+coverage run --source='./simplecache' --omit="*__init__*,*/test*" -m unittest discover -s simplecache/test -p '*_test.py'
 coverage report -m
 rm -rf ./htmlcov/*
 coverage html
