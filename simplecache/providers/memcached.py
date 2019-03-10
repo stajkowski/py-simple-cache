@@ -64,9 +64,14 @@ class MemcachedProvider(BaseProvider):
                 if data:
                     return self.conversion.decode(data), False
                 else:
-                    data = method(**kwargs)
-                    self.put(key, ttl, data)
-                    return data, True
+                    # if method is passed, load data and pass into
+                    # memcached with key
+                    if method is not None:
+                        data = method(**kwargs)
+                        self.put(key, ttl, data)
+                        return data, True
+                    else:
+                        return None, True
             except Exception as e:
                 raise UnhandledCachingException(
                     'UnhandledCachingException: {}'.format(str(e.message)))

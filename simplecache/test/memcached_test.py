@@ -50,6 +50,15 @@ class TestSetup(unittest.TestCase):
         self.assertDictEqual(response, data)
         self.assertTrue(miss, msg='Unexpected cache hit.')
 
+    def test_get_key_value_with_cache_miss_no_method(self):
+        """ Test basic GET key with cache miss """
+        memcached = MemcachedProvider(JsonConversion(), servers='127.0.0.1')
+
+        # test local instance of memcached with cache miss
+        response, miss = memcached.get('testkey3', 60, None)
+        self.assertIsNone(response, msg='Unexpected value.')
+        self.assertTrue(miss, msg='Unexpected cache hit.')
+
     def test_delete_key_with_expected_cache_miss(self):
         """ Test basic DELETE key with expected cache miss """
         data = {
