@@ -1,9 +1,9 @@
 import decimal
 import json
-from simplecache.common.base_conversion import BaseConversion
+from simplecache.common.base_conversion import BaseSerializer
 
 
-class JsonConversion(BaseConversion):
+class JsonSerializer(BaseSerializer):
     """ JSON Conversion Library """
 
     def encode(self, data):

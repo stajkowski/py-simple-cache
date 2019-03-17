@@ -1,5 +1,5 @@
 import unittest
-from simplecache.common.json_conversion import JsonConversion
+from simplecache.common.json_conversion import JsonSerializer
 from simplecache.providers.memcached import MemcachedProvider
 
 
@@ -18,13 +18,23 @@ class TestClass(object):
 class TestSetup(unittest.TestCase):
     """ Memcached Provider Test """
 
+    def setUp(self):
+        """ Setup Tests
+
+            1. Remove keys added during tests.
+        """
+        memcached = MemcachedProvider(JsonSerializer(), servers='127.0.0.1')
+        memcached.delete('testkey1')
+        memcached.delete('testkey2')
+        memcached.delete('testkey3')
+
     def test_put_key_value(self):
         """ Test basic PUT key value """
         data = {
             'test1': 'value1',
             'test2': 'value2'
         }
-        memcached = MemcachedProvider(JsonConversion(), servers='127.0.0.1')
+        memcached = MemcachedProvider(JsonSerializer(), servers='127.0.0.1')
         memcached.put('testkey1', 60, data)
         t = TestClass()
 
@@ -41,7 +51,7 @@ class TestSetup(unittest.TestCase):
             'test1': 'value1',
             'test2': 'value2'
         }
-        memcached = MemcachedProvider(JsonConversion(), servers='127.0.0.1')
+        memcached = MemcachedProvider(JsonSerializer(), servers='127.0.0.1')
         t = TestClass()
 
         # test local instance of memcached with cache miss
@@ -52,7 +62,7 @@ class TestSetup(unittest.TestCase):
 
     def test_get_key_value_with_cache_miss_no_method(self):
         """ Test basic GET key with cache miss """
-        memcached = MemcachedProvider(JsonConversion(), servers='127.0.0.1')
+        memcached = MemcachedProvider(JsonSerializer(), servers='127.0.0.1')
 
         # test local instance of memcached with cache miss
         response, miss = memcached.get('testkey3', 60, None)
@@ -65,7 +75,7 @@ class TestSetup(unittest.TestCase):
             'test1': 'value1',
             'test2': 'value2'
         }
-        memcached = MemcachedProvider(JsonConversion(), servers='127.0.0.1')
+        memcached = MemcachedProvider(JsonSerializer(), servers='127.0.0.1')
         memcached.put('testkey1', 60, data)
         memcached.delete('testkey1')
         t = TestClass()

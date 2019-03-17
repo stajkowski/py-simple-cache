@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 
 
-class BaseConversion(object):
+class BaseSerializer(object):
     """ Base Data Conversion Interface """
 
     __metaclass__ = ABCMeta
