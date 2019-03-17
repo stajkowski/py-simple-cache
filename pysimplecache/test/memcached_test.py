@@ -1,6 +1,6 @@
 import unittest
-from simplecache.common.json_serializer import JsonSerializer
-from simplecache.providers.memcached import MemcachedProvider
+from pysimplecache.common.json_serializer import JsonSerializer
+from pysimplecache.providers.memcached import MemcachedProvider
 
 
 class TestClass(object):

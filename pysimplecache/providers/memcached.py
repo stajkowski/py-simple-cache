@@ -1,6 +1,6 @@
 import bmemcached
 import os
-from simplecache.providers.base_provider import BaseProvider, \
+from pysimplecache.providers.base_provider import BaseProvider, \
     UnhandledCachingException
 
 
