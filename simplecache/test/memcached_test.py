@@ -1,5 +1,5 @@
 import unittest
-from simplecache.common.json_conversion import JsonSerializer
+from simplecache.common.json_serializer import JsonSerializer
 from simplecache.providers.memcached import MemcachedProvider
 
 

@@ -1,6 +1,6 @@
 import decimal
 import json
-from simplecache.common.base_conversion import BaseSerializer
+from simplecache.common.base_serializer import BaseSerializer
 
 
 class JsonSerializer(BaseSerializer):
