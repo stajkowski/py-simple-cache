@@ -1,5 +1,5 @@
 # Simple Caching Library for Python
-[![Build Status](https://travis-ci.org/stajkowski/simple-cache.svg?branch=master)](https://travis-ci.org/stajkowski/simple-cache)
+[![Build Status](https://travis-ci.org/stajkowski/py-simple-cache.svg?branch=master)](https://travis-ci.org/stajkowski/py-simple-cache)
 
 # Summary
 Simple caching library for supported providers.  Pass method call to caching provider along with
