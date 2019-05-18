@@ -12,10 +12,10 @@ if there was a cache miss to assist in any metrics generation.
 # Getting Started
 1. Instantiate the provider:
    ```python
-   from simplecache.common.json_conversion import JsonConversion
-   from simplecache.providers.memcached import MemcachedProvider
+   from pysimplecache.common.json_serializer import JsonSerializer
+   from pysimplecache.providers.memcached import MemcachedProvider
 
-   memcached = MemcachedProvider(JsonConversion(), servers='127.0.0.1')
+   memcached = MemcachedProvider(JsonSerializer(), servers='127.0.0.1')
    ```
 2. PUT data into Memcached:
    ```python
